@@ -127,15 +127,14 @@ public class Order {
         repository().save(order);
 
         */
-
-        /** Example 2:  finding and process
         
 
         repository().findById(deadlineReached.get???()).ifPresent(order->{
             
-            order // do something
+            order.setStatus("REJECTED");
             repository().save(order);
 
+            new OrderRejected(order).publishAfterCommit();
 
          });
         */
